@@ -1,0 +1,134 @@
+<ion-app>
+  <ion-split-pane when="(min-width: 650px)">
+    <ion-menu side="end" class="side-bar" menuId="main" text-right type="overlay" swipeGesture='true'>
+      <ion-header>
+        <ion-toolbar>
+          <ion-title>القائمة</ion-title>
+        </ion-toolbar>
+      </ion-header>
+      <ion-content>
+        <ion-list>
+          <ion-item (click)="go_to('')">
+             الرئيسية
+          </ion-item>
+          <ion-item (click)="logs('FavsPage')">
+            الإعلانات المفضلة
+          </ion-item>
+          <ion-item (click)="go_to('myads')">
+            إعلاناتي
+          </ion-item>
+          <ion-item>
+            اتصل بنا
+          </ion-item>
+          <ion-item>
+            حساب عمولة الموقع
+          </ion-item>
+          <ion-item>
+            نظام الخصم
+          </ion-item>
+          <ion-item>
+            قائمة المتابعة
+          </ion-item>
+          <ion-item>
+            قائمة السلع والإعلانات الممنوعة
+          </ion-item>
+          <ion-item>
+            القائمة السوداء
+          </ion-item>
+          <ion-item>
+            معاهدة استخدام الخدمة
+          </ion-item>
+          <div *ngIf="!logged">
+            <ion-item class="logs" (click)="logs('LoginPage')">
+                تسجيل الدخول
+            </ion-item>
+            <ion-item class="logs" (click)="logs('RegisterPage')">
+                التسجيل
+            </ion-item>
+          </div>
+          <div *ngIf="logged">
+            <ion-item class="logs" (click)="logout()">
+                 تسجيل الخروج
+            </ion-item>
+          </div>
+        </ion-list>
+      </ion-content>
+      <ion-footer class="more-links">
+        
+      </ion-footer>
+    </ion-menu>
+    <ion-router-outlet main></ion-router-outlet>
+  </ion-split-pane>
+
+  <!--sections-->
+  <ion-menu side="start" class="sections-bar" menuId="sections">
+    <ion-content>
+      <ion-grid>
+        <ion-row>
+          <ion-col size="6" (click)="go_search('نيسان')">
+              <img src="../assets/img/1.jpg"/>
+          </ion-col>
+          <ion-col size="6" (click)="go_search('تويوتا')">
+              <img src="../assets/img/2.jpg"/>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col size="6" (click)="go_search('فورد')">
+              <img src="../assets/img/3.jpg"/>
+          </ion-col>
+          <ion-col size="6" (click)="go_search('مرسيدس')">
+              <img src="../assets/img/4.jpg"/>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col size="6" (click)="go_search('شيفروليه')">
+              <img src="../assets/img/5.jpg"/>
+          </ion-col>
+          <ion-col size="6" (click)="go_search('ليكزس')">
+              <img src="../assets/img/6.jpg"/>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col size="6" (click)="go_search('')">
+              <img src="../assets/img/7.jpg"/>
+          </ion-col>
+          <ion-col size="6" (click)="go_search('بي ام')">
+              <img src="../assets/img/8.jpg"/>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col size="6" (click)="go_search('جي ام سي')">
+              <img src="../assets/img/9.jpg"/>
+          </ion-col>
+          <ion-col size="6" (click)="go_search('اودي')">
+              <img src="../assets/img/10.jpg"/>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col size="6" (click)="go_search('')">
+              <img src="../assets/img/11.jpg"/>
+          </ion-col>
+          <ion-col size="6" (click)="go_search('هامر')">
+              <img src="../assets/img/12.jpg"/>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col size="6" (click)="go_search('فولكس')">
+              <img src="../assets/img/13.jpg"/>
+          </ion-col>
+          <ion-col size="6" (click)="go_search('لاند روفر')">
+              <img src="../assets/img/14.jpg"/>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col size="6" (click)="go_search('')">
+              <img src="../assets/img/15.jpg"/>
+          </ion-col>
+          <ion-col size="6" (click)="go_search('ميتسوبيشي')">
+              <img src="../assets/img/16.jpg"/>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-content>
+  </ion-menu>
+</ion-app>

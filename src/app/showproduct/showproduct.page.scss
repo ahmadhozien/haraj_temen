@@ -1,0 +1,90 @@
+ion-slide{
+    height:190px;
+    img{
+        width:100%;
+        object-fit: cover;
+        height:100%;
+    }
+}
+.data
+{
+    padding-bottom:15px;
+    border-top:0.1px solid#ccc; 
+    border-bottom:0.1px solid#ccc; 
+    direction: rtl;
+    font-size:17px; 
+    h1{
+        color:#073245;
+        font-weight:bold;
+    }
+    a{
+        text-decoration:none;
+    }
+}
+.desc
+{
+    direction: rtl;
+    padding: 10px;
+    border-bottom:0.1px solid#ccc;
+}
+.bbar
+{
+    background:linear-gradient(to right,#072e3f ,#135176);
+    width:100%;
+    display: block;
+    position: fixed;
+    bottom: 0px;
+    padding-bottom:15px;
+    z-index: 9999;
+    ul{
+        li{
+            display: inline;
+            list-style: none;
+            float: right;
+            width:25%;
+            text-align: center;
+            color:#dfd7d7;
+        }
+    }
+}
+.sim-cont
+{
+    margin-bottom: 30px;
+    direction:rtl;
+}
+.sim
+{
+    height:130px;
+    border:0.1px solid#ccc;
+    img{
+        height: 100%;
+        width:100%;
+        object-fit: cover; 
+    }
+}
+
+.share-btn
+{
+    margin-bottom:80px;
+}
+.add-com
+{
+    direction: rtl;
+    font-weight: bold;
+}
+.comments
+{
+    direction: rtl;
+    width: 100%;
+    img{
+        width:90px;
+        height:60px;
+        border-radius: 50%;
+    }
+    h3{
+        padding:0px;
+    }
+    ion-row{
+        text-align: right;
+    }
+}

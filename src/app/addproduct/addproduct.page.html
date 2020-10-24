@@ -1,0 +1,78 @@
+<ion-header class="header mh">
+  <ion-toolbar>
+    <ion-title slot="start">
+      إضافة إعلان جديد
+    </ion-title>
+    <ion-buttons slot="end">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+ 
+<ion-content padding class="cont">
+  <div class="add-ad">
+    <h3>تفاصيل الإعلان</h3>
+    <ion-item>
+      <ion-label position="floating">عنوان الإعلان</ion-label>
+      <ion-input [(ngModel)]="name" clearInput></ion-input>
+    </ion-item>
+    
+    <ion-list>
+      <ion-item>
+        <ion-label>اختر قسم</ion-label>
+        <ion-select [(ngModel)]="sect" okText='اختيار' cancelText='إلغاء'>
+          <ion-select-option *ngFor="let section of sections" value="{{section.name}}">{{section.name}}</ion-select-option>
+        </ion-select>
+      </ion-item>
+    </ion-list>
+
+    <ion-item>
+      <ion-label position="floating">السعر</ion-label>
+      <ion-input [(ngModel)]="price" clearInput></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">رقم الهاتف</ion-label>
+      <ion-input [(ngModel)]="phone" clearInput></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">المدينة</ion-label>
+      <ion-input [(ngModel)]="city" clearInput></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">الوصف</ion-label>
+      <ion-textarea [(ngModel)]="desc"></ion-textarea>
+    </ion-item>
+  </div>
+  <h3>صور الإعلان</h3>
+  <ion-grid class="upl-imgs">
+    <ion-row>
+      <ion-col size="12">
+        <ion-slides [options]="slideOpts">
+          <ion-slide>
+            <ion-button fill="clear" class="cam" (click)="selectImage()">
+              <ion-icon slot="start" name="camera"></ion-icon>
+            </ion-button>
+          </ion-slide>
+          <ion-slide *ngFor="let img of images; index as pos">
+              <img src="{{img.path}}">
+              <ion-button slot="end" class="delete" color="danger" fill="clear" (click)="deleteImage(img, pos)">
+                <ion-icon slot="icon-only" name="trash"></ion-icon>
+              </ion-button>
+          </ion-slide>
+        </ion-slides>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>
+ 
+<ion-footer>
+  <ion-toolbar color="primary">
+      <ion-button fill="clear" expand="full" color="light" (click)="add_product()">
+        <ion-icon slot="start" name="plus"></ion-icon>
+        إضافة الإعلان
+      </ion-button>
+  </ion-toolbar>
+</ion-footer>

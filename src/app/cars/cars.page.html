@@ -1,0 +1,102 @@
+<ion-header class="header mh">
+  <ion-toolbar>
+    
+    <ion-buttons slot="start" (click)="openmenu('main')"> 
+      <ion-button fill='clear' color="white">
+        <ion-icon slot="icon-only" name="more"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <!--top bar buttons-->
+    <ion-buttons slot="start" (click)="header_pages('addproduct')">
+      <ion-button fill='clear' color="white">
+        <ion-icon slot="icon-only" name="add"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-buttons slot="start" (click)="header_pages('messages')">
+      <ion-button fill='clear' color="white">
+        <ion-icon slot="icon-only" name="mail-unread"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-buttons slot="start" (click)="header_pages('notfs')">
+      <ion-button fill='clear' color="white">
+        <ion-icon slot="icon-only" name="notifications"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-buttons slot="end" (click)="openmenu('sections')"> 
+      <ion-button fill='clear' color="white">
+        <ion-icon slot="icon-only" name="apps"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <!--/end top bar buttons-->
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
+      <ion-refresher-content></ion-refresher-content>
+    </ion-refresher>
+    <div class="filters">
+      <ion-buttons slot="end">
+        <ion-button fill='clear' color="white">
+          <ion-icon slot="icon-only" name="reorder"></ion-icon>
+        </ion-button>
+      </ion-buttons>
+      <ion-buttons slot="end" (click)="fire_search()">
+        <ion-button fill='clear' color="white">
+          <ion-icon slot="icon-only" name="search"></ion-icon>
+        </ion-button>
+      </ion-buttons>
+      <ion-buttons slot="end">
+        <ion-button fill='clear' color="white">
+          <ion-icon slot="icon-only" name="camera"></ion-icon>
+        </ion-button>
+      </ion-buttons>
+      <ion-buttons slot="end">
+        <ion-button fill='clear' color="white">
+          <ion-icon slot="icon-only" name="navigate"></ion-icon>
+        </ion-button>
+      </ion-buttons>
+    </div>
+    <ul class="products">
+      <!--one item-->
+      <li class="item" *ngFor="let item of products" (click)="show_product(item.id)">
+        <ion-grid>
+          <ion-row>
+            <ion-col size="9">
+                <ion-row class="item-det">
+                  <ion-col size="12">
+                    <h3>{{item.name}} </h3>
+                  </ion-col>
+                </ion-row>
+                <ion-row class="item-mdet">
+                  <ion-col size="8">
+                    <p>
+                      <ion-icon name="bookmark"></ion-icon>
+                      {{item.date}}
+                    </p>
+                    <p>
+                      <ion-icon name="person"></ion-icon>
+                      {{item.merchant}}  
+                    </p>
+                  </ion-col>
+                  <ion-col size="4">
+                      <p>
+                        <ion-icon name="pin"></ion-icon>
+                        {{item.city}}
+                      </p>
+                      <p>
+                        <ion-icon name="apps"></ion-icon>
+                        {{item.section}}
+                      </p>
+                  </ion-col>
+                </ion-row>
+            </ion-col>
+            <ion-col size="3">
+              <img src="{{item.img}}">
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </li>
+      <!--/one item-->
+    </ul>
+</ion-content>

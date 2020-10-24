@@ -1,0 +1,43 @@
+.login-header
+{
+    direction:rtl;
+    --ion-background-color:linear-gradient(to right,#072e3f ,#135176);
+    color:#d8d3d3;
+}
+.cart-item
+{
+    direction: rtl;
+    img{
+        width:100%;
+    }
+
+    label{
+        font-weight: bold;
+        font-size:18px;
+    }
+}
+.cart-btns
+{
+    border-top:0.1px solid#ccc;
+    ion-button{
+        --background:#47A4AD;
+    }
+    ion-input{
+        font-size:30px;
+        padding:0px;
+        margin-top:-15px;
+        margin-right: 7px;
+    }
+}
+.del-cart
+{
+    position: absolute;
+    left:-7px;
+    top:0px;
+}
+.bottom-bar
+{
+    --ion-background-color:#d7820d;
+    --color:#fefefe;
+    --color-selected:rgba(211, 209, 209, 0.993);
+}

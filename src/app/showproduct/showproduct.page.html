@@ -1,0 +1,151 @@
+<ion-header class="header mh">
+  <ion-toolbar>
+    <ion-title slot="start">{{name}}</ion-title>
+    <ion-buttons slot="end">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card>
+    <ion-slides pager="true" [options]="slideOpts">
+      <ion-slide *ngFor="let img of imgs">
+        <img src="{{img.img}}">
+      </ion-slide>
+    </ion-slides>
+  </ion-card>
+  <ion-grid class="data">
+    <ion-row>
+      <ion-col size="12"><h1>{{name}}</h1></ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col size="6">
+          <ion-icon name="cash"></ion-icon>
+          {{price}}
+      </ion-col>
+      <ion-col size="6">
+          <ion-icon name="bookmark"></ion-icon>
+          {{date}}
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col size="6">
+          <ion-icon name="person"></ion-icon>
+          {{merchant}}
+      </ion-col>
+      <ion-col size="6">
+          <ion-icon name="pin"></ion-icon>
+          {{city}}
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col size="6">
+          <ion-icon name="call"></ion-icon>
+          <a href="tel:{{phone}}">
+            {{phone}}
+          </a>
+      </ion-col>
+      <ion-col size="6">
+          <ion-icon name="eye"></ion-icon>
+          {{visits}}
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+  <div class="desc">
+    {{desc}}
+  </div>
+  <div class="desc" text-right>
+    <h3>التعليقات</h3>
+    <ion-slides pager="true" [options]="slideOpts" class="comments">
+      <ion-slide *ngFor="let comm of comments">
+        <ion-grid>
+          <ion-row>
+            <ion-col size="2">
+              <img src="../../assets/img/user.jpg">
+            </ion-col>
+            <ion-col size="10">
+              <ion-row>
+                <ion-col size="9">
+                  <h3>{{comm.fname}}</h3>
+                </ion-col>
+                <ion-col size="3" text-right>
+                  <small>{{comm.date}}</small>
+                </ion-col>
+              </ion-row>
+              <ion-row>
+                <ion-col size="12">
+                  <small>{{comm.comment}}</small>
+                </ion-col>
+              </ion-row>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </ion-slide>
+    </ion-slides>
+  </div>
+  <div text-center class="add-com">
+    <h1 color="primary" (click)="add_comment()">
+      <ion-icon name="chatboxes"></ion-icon>
+      إضافة تعليق
+    </h1>
+  </div>
+  <!--bottom bar-->
+  <div class="header bbar">
+    <ul>
+      <li>
+        <ion-buttons slot="end" (click)="call_num()">
+          <ion-button fill='clear' color="white">
+            <ion-icon slot="icon-only" name="call"></ion-icon>
+          </ion-button>
+        </ion-buttons>
+      </li>
+      <li>
+        <ion-buttons slot="end" (click)="add_fav()"> 
+          <ion-button fill='clear' color="white">
+            <ion-icon slot="icon-only" name="heart"></ion-icon>
+          </ion-button>
+        </ion-buttons>
+      </li>
+      <li>
+        <ion-buttons slot="end">
+          <ion-button fill='clear' color="white">
+            <ion-icon slot="icon-only" name="chatboxes"></ion-icon>
+          </ion-button>
+        </ion-buttons>
+      </li>
+      <li>
+        <ion-buttons slot="end" (click)="report()">
+          <ion-button fill='clear' color="white">
+            <ion-icon slot="icon-only" name="flag"></ion-icon>
+          </ion-button>
+        </ion-buttons>
+      </li>
+    </ul>
+  </div>
+
+  <!--similar products-->
+  <ion-grid class="sim-cont">
+    <ion-row>
+      <h3>منتجات مشابهة</h3> 
+    </ion-row>
+    <ion-row>
+      <ion-col size="4" *ngFor="let sim of products" class="sim" (click)="change_pid(sim.id)">
+        <img src="{{sim.img}}">
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+  <!-- fab placed to the top start -->
+  <ion-fab vertical="bottom" class="share-btn" horizontal="start" slot="fixed">
+    <ion-fab-button color="dark" size="large">
+        <ion-icon name="share"></ion-icon>
+    </ion-fab-button>
+    <ion-fab-list side="top">
+      <ion-fab-button><ion-icon name="logo-facebook"></ion-icon></ion-fab-button>
+      <ion-fab-button><ion-icon name="logo-twitter"></ion-icon></ion-fab-button>
+      <ion-fab-button><ion-icon name="logo-instagram"></ion-icon></ion-fab-button>
+    </ion-fab-list>
+  </ion-fab>
+  
+</ion-content>

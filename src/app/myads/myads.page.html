@@ -1,0 +1,76 @@
+<ion-header class="header mh">
+  <ion-toolbar>
+    <ion-title slot="start">
+      إعلاناتي
+    </ion-title>
+    <ion-buttons slot="end">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
+      <ion-refresher-content></ion-refresher-content>
+    </ion-refresher>
+    <div class="empty" *ngIf="products.length === 0">
+      <h1>عفواً لا يوجد إعلانات</h1>
+    </div>
+    <ul class="products">
+      <!--one item-->
+      <li class="item" *ngFor="let item of products">
+        <ion-grid>
+          <ion-row  (click)="show_product(item.id)">
+            <ion-col size="9">
+                <ion-row class="item-det">
+                  <ion-col size="12">
+                    <h3>{{item.name}} </h3>
+                  </ion-col>
+                </ion-row>
+                <ion-row class="item-mdet">
+                  <ion-col size="8">
+                    <p>
+                      <ion-icon name="bookmark"></ion-icon>
+                      {{item.date}}
+                    </p>
+                    <p>
+                      <ion-icon name="person"></ion-icon>
+                      {{item.merchant}}  
+                    </p>
+                  </ion-col>
+                  <ion-col size="4">
+                      <p>
+                        <ion-icon name="pin"></ion-icon>
+                        {{item.city}}
+                      </p>
+                      <p>
+                        <ion-icon name="apps"></ion-icon>
+                        {{item.section}}
+                      </p>
+                  </ion-col>
+                </ion-row>
+            </ion-col>
+            <ion-col size="3">
+              <img src="{{item.img}}">
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col size="6">
+              <ion-button  expand="full" color="light">
+                <ion-icon slot="start" name="creat"></ion-icon>
+                تعديل 
+              </ion-button>
+            </ion-col>
+            <ion-col size="6">
+                <ion-button  expand="full" color="danger" (click)="delete(item.id)">
+                  <ion-icon slot="start" name="trash"></ion-icon>
+                  حذف 
+                </ion-button>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </li>
+      <!--/one item-->
+    </ul>
+</ion-content>
+  

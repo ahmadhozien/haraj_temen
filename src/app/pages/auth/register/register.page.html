@@ -1,0 +1,39 @@
+<ion-header>
+  <ion-toolbar class="login-header">
+      <ion-buttons slot="end" (click)="dismissLogin()"> 
+        <ion-button fill='clear' color="white">
+          <ion-icon slot="icon-only" name="close"></ion-icon>
+        </ion-button>
+      </ion-buttons>
+    <ion-title>التسجيل في التطبيق</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="content">
+    <div text-center class="login-tc">
+      <img src="../../../../assets/img/logo.png"/>
+      <h1>تسجيل مستخدم</h1> 
+    </div>
+    <div class="form-group">
+      <ion-item>
+        <ion-input [(ngModel)]="umail" id="pass" clearInput placeholder="البريد الإلكتروني"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-input [(ngModel)]="uphone" id="pass" clearInput placeholder="رقم الهاتف"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-input type="text" [(ngModel)]="uname" clearInput placeholder="الاسم"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-input type="password" id="pass" [(ngModel)]="upass" clearInput placeholder="كلمة المرور"></ion-input>
+      </ion-item>
+      <div text-center class="loginbtn">
+          <ion-button shape="round" (click)="register()">التسجيل</ion-button>
+      </div>
+    </div>
+    <div text-center>
+      <span>
+        لديك حساب بالفعل؟ <a (click)="gologin()">تسجيل الدخول</a>
+      </span>
+    </div>
+</ion-content>

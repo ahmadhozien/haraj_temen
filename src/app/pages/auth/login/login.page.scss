@@ -1,0 +1,29 @@
+.login-header
+{
+    direction:rtl;
+    --ion-background-color:linear-gradient(to right,#072e3f ,#135176);
+    color:#d8d3d3;
+}
+.content
+{
+    direction: rtl;
+    --ion-background-color:linear-gradient(to right,#abacad, #a2a9af ,#c7c9ca);
+}
+.login-tc
+{
+    margin-top:5%;
+    ion-input{
+        color:var(--ion-color-primary);
+    }
+    img{
+        width:70%;
+    }
+}
+.loginbtn
+{
+    padding-top:10%; 
+    margin-bottom:20px;
+    ion-button{
+        color:#d8d3d3;
+    }
+}

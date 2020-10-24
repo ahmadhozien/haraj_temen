@@ -1,0 +1,31 @@
+.bottom-bar
+{
+    position: fixed;
+    top:7%;
+    margin-top:0px;
+    padding-top:0px;
+    padding-bottom:0px;
+    border-bottom:1.5px solid #697d89;
+    direction:rtl;
+    width:100%;
+    border-right:0.8px solid #FFC909;
+    --color:rgb(79, 106, 116);
+    --color-selected:rgb(0, 38, 61);
+    ion-tab-button{
+        border-left:0.8px solid #FFC909;
+        height:30px;
+        padding: 0px;
+        font-weight: bold;
+        margin:0px;
+    }
+}
+
+.slides
+{
+    padding:0px;
+    slide{
+        padding:0px;
+        margin:0px;
+        background:none;
+    }
+}
